@@ -10,34 +10,43 @@ class Point{
         Point(int _x=0,int _y=0):x(_x),y(_y){
         }
         void print(){
-            cout<<"x: "<<x<<"y: "<<y<<endl;
+            cout<<"x: "<<x<<" y: "<<y<<endl;
         }
 };
 
 class Circle: public Point{
-    private:
-        int x;
-        int y;
+    protected:
         int r;
     public:
         Circle(int _x=0,int _y=0, int _r=0):Point(_x,_y),r(_r){
-            x=_x;
-            y=_y;
+
         }
         void print(){
-            cout<<"x: "<<x<<"y: "<<y<<"r: "<<r<<endl;
+            cout<<"x: "<<x<<" y: "<<y<<" r: "<<r<<endl;
         }
         
 };
 
-int main(){
+class Cylinder:public Circle{
+    protected:
+        int h;
+    public:
+        Cylinder(int _x=0, int _y=0, int _r=0, int _h=0):Circle(_x,_y,_r),h(_h){
 
-    Point p1,p2(2,3);
-    Circle c1,c2(1,1,1);
-    p1.print();
-    p2.print();
-    c1.print();
-    c2.print();
+        }
+        void print(){
+            cout<<"x: "<<x<<" y: "<<y<<" r: "<<r<<" h: "<<h<<endl;
+        }
+        double volume(){
+            return 3.14*h*r*r;
+        }
+
+};
+
+int main(){
+    Cylinder cc1,cc2(1,2,1,2);
+    cout<<"1. silindirin hacmi= "<<cc1.volume()<<endl;
+    cout<<"2. silindirin hacmi= "<<cc2.volume()<<endl;
 
 
 }
