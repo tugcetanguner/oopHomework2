@@ -24,7 +24,9 @@ class Circle: public Point{
         void print(){
             cout<<"x: "<<x<<" y: "<<y<<" r: "<<r<<endl;
         }
-        
+        double volume(){
+            return 11*r;
+        }
 };
 
 class Cylinder:public Circle{
@@ -38,15 +40,18 @@ class Cylinder:public Circle{
             cout<<"x: "<<x<<" y: "<<y<<" r: "<<r<<" h: "<<h<<endl;
         }
         double volume(){
-            return 3.14*h*r*r;
+            return 22;
         }
 
 };
 
 int main(){
-    Cylinder cc1,cc2(1,2,1,2);
+
+
+    Cylinder cc1,cc2(2,2,3,3);
     cout<<"1. silindirin hacmi= "<<cc1.volume()<<endl;
     cout<<"2. silindirin hacmi= "<<cc2.volume()<<endl;
-
+    //parent func calling
+    cout<<""<<cc2.Circle::volume()<<endl;
 
 }
